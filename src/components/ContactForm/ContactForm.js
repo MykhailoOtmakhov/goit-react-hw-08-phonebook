@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styles from './ContactForm.module.css';
 import { connect } from 'react-redux';
-import contactsOperation from '../../redux/contacts-operations'
+import contactsOperation from '../../redux/contacts/contacts-operations'
+// import authOperation from '../../redux/auth/index'
 import Notification from '../Notification/Notification'
 import { CSSTransition } from 'react-transition-group'
 

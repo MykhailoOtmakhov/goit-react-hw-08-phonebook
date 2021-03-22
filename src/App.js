@@ -1,51 +1,80 @@
 import React, { Component } from 'react';
-import ContactForm from './components/ContactForm/ContactForm';
-import Contacts from './components/Contacts/Contacts';
-import Filter from './components/Filter/Filter';
-import { CSSTransition } from 'react-transition-group'
+import { Switch, Route } from 'react-router-dom';
+import Container from './components/Container/Container';
 import './App.css'
-import Header from './components/Header/Header.js';
+import HomeView from './views/HomeView/HomeView';
+import RegisterView from './views/RegisterView/RegisterView';
+import LoginView from './views/LoginView/LoginView';
+import { authOperations } from './redux/auth/index';
+// import contactsSelectors from './redux/contacts/contacts-selectors'
+import AppBar from './components/AppBar/AppBar';
+import ContactsView from './views/ContactsView/ContactsView';
 import { connect } from 'react-redux';
-import contactsOperations from './redux/contacts-operations';
-import contactsSelectors from './redux/contacts-selectors'
+// import styles from './components/AppBar/AppBar.module.css'
+
 
 class App extends Component {  
-
+// const App = () => (
   componentDidMount(){
-    this.props.fetchContact()
+    this.props.onGetCurrentUser()
   }
   
   render() {
     return(
-      <div>
-        <Header />
-        <ContactForm />
-        <CSSTransition 
-          in={this.props.contacts.length>1}
-          timeout={250}
-          classNames="container"
-          unmountOnExit>
-            <Filter/>
-        </CSSTransition>
-        <CSSTransition 
-          in={this.props.contacts.length>0}
-          timeout={250}
-          classNames="container"
-          unmountOnExit>
-            <Contacts />
-        </CSSTransition>       
-      </div>
+      <Container>
+        <AppBar />
+
+        <Switch>
+          <Route exact path="/" component={HomeView} />
+          <Route path="/register" component={RegisterView} />
+          <Route path="/login" component={LoginView} />
+          <Route path="/contacts" component={ContactsView} />
+        </Switch>
+      </Container>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  contacts: state.contacts.items,
-  isLoadingContacts: contactsSelectors.getLoading(state),
-})
+// const mapStateToProps = state => ({
+//   contacts: state.contacts.items,
+//   isLoadingContacts: contactsSelectors.getLoading(state),
+// })
 
-const mapDispatchToProps = dispatch => ({
-  fetchContact: () => dispatch(contactsOperations.fetchContact())
-})
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)
+
+// export default App
+
+
+
+
+
+// // import { useEffect } from 'react';
+// // import { useDispatch } from 'react-redux';
+// import React from 'react'
+// import { Switch, Route } from 'react-router-dom';
+// import AppBar from './components/AppBar/AppBar';
+// import ContactsView from './views/ContactsView/ContactsView';
+// import HomeView from './views/HomeView/HomeView';
+// import RegisterView from './views/RegisterView/RegisterView';
+// import LoginView from './views/LoginView/LoginView';
+// import Container from './components/Container/Container';
+// // import { authOperations } from './redux/auth';
+// const App = () => (
+//   <Container>
+//     <AppBar />
+
+//     <Switch>
+//       <Route exact path="/" component={HomeView} />
+//       <Route path="/register" component={RegisterView} />
+//       <Route path="/login" component={LoginView} />
+//       <Route path="/contacts" component={ContactsView} />
+//     </Switch>
+//   </Container>
+// )
+
+
+// export default App

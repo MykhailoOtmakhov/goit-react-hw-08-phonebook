@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Filter.module.css'
 import { connect } from 'react-redux'
-import * as contactsActions from '../../redux/contacts-actions'
-import contactsSelectors from '../../redux/contacts-selectors'
+import * as contactsActions from '../../redux/contacts/contacts-actions'
+import contactsSelectors from '../../redux/contacts/contacts-selectors'
 
 const Filter =({value, onChange})=>{
     return(

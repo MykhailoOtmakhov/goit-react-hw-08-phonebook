@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styles from './Contacts.module.css'
 import { connect } from 'react-redux';
-import contactsOperations from '../../redux/contacts-operations'
-import * as contactsActions from '../../redux/contacts-actions'
-import contactsSelectors from '../../redux/contacts-selectors'
+import contactsOperations from '../../redux/contacts/contacts-operations'
+import * as contactsActions from '../../redux/contacts/contacts-actions'
+import contactsSelectors from '../../redux/contacts/contacts-selectors'
 
 const Contacts = ({contacts,onRemoveContact,clearFilter}) => {
     
