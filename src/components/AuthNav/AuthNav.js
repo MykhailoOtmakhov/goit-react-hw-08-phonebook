@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import styles from './AuthNav.module.css'
 
 const styles = {
   link: {
@@ -16,24 +15,24 @@ const styles = {
 };
 
 const AuthNav = () => (
-    <div>
-      <NavLink
-        to="/register"
-        exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
-      >
-        Регистрация
-      </NavLink>
-      <NavLink
-        to="/login"
-        exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
-      >
-        Логин
-      </NavLink>
-    </div>
+  <div>
+    <NavLink
+      to="/register"
+      exact
+      style={styles.link}
+      activeStyle={styles.activeLink}
+    >
+      Регистрация
+    </NavLink>
+    <NavLink
+      to="/login"
+      exact
+      style={styles.link}
+      activeStyle={styles.activeLink}
+    >
+      Логин
+    </NavLink>
+  </div>
 )
 
 export default AuthNav

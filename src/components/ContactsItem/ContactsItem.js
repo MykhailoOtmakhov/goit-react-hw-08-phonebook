@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ContactsItem.module.css';
 import PropTypes from 'prop-types'
-// import styles from './Contacts.module.css'
 
 const ContactsItem = ({name, number, onRemove})=>(
     <li 

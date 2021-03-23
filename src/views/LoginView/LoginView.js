@@ -1,8 +1,6 @@
-// import { useState } from 'react';
 import React, { Component } from 'react'
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { authOperations } from '../../redux/auth/index';
-// import styles from './LoginView.module.css'
 
 const styles = {
   form: {
@@ -15,34 +13,15 @@ const styles = {
   },
 };
 
-
 class LoginView extends Component {
   state ={
       email: '',
       password: '',
   };
 
-// function LoginView() {
-//   const dispatch = useDispatch();
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value })
   }
-
-
-  // const handleChange = ({ target: { name, value } }) => {
-  //   switch (name) {
-  //     case 'email':
-  //       return setEmail(value);
-  //     case 'password':
-  //       return setPassword(value);
-  //     default:
-  //       return;
-  //   }
-  // };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -52,13 +31,6 @@ class LoginView extends Component {
     this.setState({email: '', password: ''});
   }
 
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(authOperations.logIn({ email, password }));
-  //   setEmail('');
-  //   setPassword('');
-  // };
   render() {
     const { email, password } = this.state;
 

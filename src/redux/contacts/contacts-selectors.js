@@ -22,13 +22,3 @@ export default {
     getFilter,
     getVisibleContacts
 }
-
-// const getVisibleContacts = state => {
-//     const allContacts = getAllContacts(state);
-//     const filter = getFilter(state);
-//     const normalizedFilter = filter.toLowerCase();
-
-//     return allContacts.filter(({name})=>
-//         name.toLowerCase().includes(normalizedFilter),
-//     )
-// }

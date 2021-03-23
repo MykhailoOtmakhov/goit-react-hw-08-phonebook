@@ -22,12 +22,6 @@ const fetchContact = () => async dispatch => {
     } catch (error) {
         dispatch(fetchContactError(error.message))
     }
-
-    // axios
-    //     .get('/contacts')
-    //     .then(({data}) => 
-    //         dispatch(fetchContactSuccess(data)))
-    //     .catch(error => dispatch(fetchContactError(error.message)));
 }
 
 const addContact = (name,number,message) => dispatch => {

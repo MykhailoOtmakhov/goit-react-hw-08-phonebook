@@ -29,7 +29,6 @@ const mapDispatchToProps = dispatch => ({
     onChange: e => dispatch(contactsActions.changeFilter(e.target.value)),
 })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)
     
 
